@@ -1,0 +1,107 @@
+# Metin Taşı — ana yapılandırma (tek dosya: config.yml)
+
+debug: false
+
+protection:
+  enabled: true
+
+webhook:
+  enabled: false
+  url: ""
+  username: "Metin Taşı"
+  events:
+    spawn: true
+    break: true
+    reactivate: false
+  titles:
+    spawn: "Metin Taşı oluşturuldu"
+    break: "Metin Taşı kırıldı"
+    reactivate: "Metin Taşı yeniden aktif"
+  descriptions:
+    spawn: "**Taş:** {stone}\n**Dünya:** {world}\n**Konum:** {x}, {y}, {z}"
+    break: "**Taş:** {stone}\n**Oyuncu:** {player}\n**Dünya:** {world}\n**Konum:** {x}, {y}, {z}"
+    reactivate: "**Taş:** {stone}\n**Dünya:** {world}\n**Konum:** {x}, {y}, {z}"
+  colors:
+    spawn: 3066993
+    break: 15158332
+    reactivate: 3447003
+
+rewards:
+  merge-global-with-stone: true
+
+metin-stone:
+  default-block: STONE
+  default-health: 100.0
+  damage-per-hit: 1.0
+  breaker-timeout: 10
+  default-name: "Metin Taşı"
+  # Yeni yerleştirilen taşın stones/<uuid>.yml dosyasına yazılacak yenilenme süresi (saat). 0 = yazma; genel reactivation süresi kullanılır.
+  default-reactivation-hours: 2
+
+# Blok üstü hologram
+hologram:
+  broken-refresh-ticks: 20
+  lines:
+    - "&6&l<isim>"
+    - "&7Can: &c<can_current>&7/&c<can_max>"
+    - "&7Kıran: &f<oyuncu>"
+    - "&7Son kıran: &e<son_kiran>"
+    - "&7Durum: &f<durum> &8| &7No: &6#<tas_no>"
+  broken-lines:
+    - "&c&lKırık"
+    - "&7<isim>"
+    - "&7Kıran: &f<son_kiran>"
+    - "&7Kalan süre: &e<aktif_zaman>"
+  line-spacing: 0.26
+  offset-y: 1.32
+
+floating-hologram:
+  line-spacing: 0.26
+  offset-y: 0.12
+  update-ticks: 100
+  lines:
+    - "&7<tas_ismi>"
+    - "&8En çok kıranlar"
+    - "<lb_1>"
+    - "<lb_2>"
+    - "<lb_3>"
+    - "<lb_4>"
+    - "<lb_5>"
+
+leaderboard:
+  max-entries: 5
+  line-format: "&7#<sira>. &f<isim> &8| &7<kirilis>"
+  empty-slot: "&8-"
+
+# mode: interval = kırıldıktan sonra süre dolunca yenilenir
+# mode: times = günlük saat listesinde tüm kırık taşlar açılır
+reactivation:
+  mode: interval
+  # Genel süre: interval-hours > 0 ise öncelikli (dakika satırı yok sayılır). Taş dosyasında süre varsa o kullanılır.
+  interval-hours: 0
+  interval-minutes: 120
+  times:
+    - "12:00"
+    - "18:00"
+    - "21:00"
+
+# Taş otomatik / zamanlı yenilendiğinde veya admin panelden yeniden açıldığında sohbet duyurusu
+reactivation-broadcast:
+  enabled: true
+  # Sohbette yaklaşık orta hizalama için baştaki boşluk sayısı (ekran ölçeğine göre ayarla)
+  title-leading-spaces: 28
+  title: "DUYURU"
+  # Yer tutucular: <isim> <dunya> <x> <y> <z> <konum>
+  message: "&f<isim> &7adlı metin taşı &e<dunya> &7dünyasında yenilendi. Bu taşın içinden &a%50 &7ihtimal ile kit kasa anahtarı çıkabilir."
+
+spawn:
+  enabled: false
+  world: world
+  location:
+    x: 0
+    y: 64
+    z: 0
+  times:
+    - "12:00"
+    - "18:00"
+    - "21:00"

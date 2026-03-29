@@ -1,0 +1,14 @@
+# MetinTasi - Oduller
+# Para: type money
+# Esya: type item + item-data (otomatik) veya eski: material + amount
+
+rewards:
+  varsayilan_elmas:
+    type: item
+    material: DIAMOND
+    amount: 1
+    chance: 50.0
+  varsayilan_para:
+    type: money
+    amount: 100.0
+    chance: 75.0

@@ -1,0 +1,28 @@
+name: MetinTasi
+version: '1.0'
+main: dev.lexon.metintasi.MetinTasiPlugin
+api-version: '1.20'
+description: Metin Taşı ödül ve sıralama eklentisi
+author: CordiDev
+loadbefore:
+  - AutoPickup
+softdepend:
+  - Vault
+  - PlaceholderAPI
+  - DecentHolograms
+
+commands:
+  metintasi:
+    description: Metin Taşı ana komutu
+    usage: /metintasi help — alt komutlar için yardım
+    aliases:
+      - mt
+      - metintaşı
+
+permissions:
+  metintasi.use:
+    description: Metin Taşı kullanma izni
+    default: true
+  metintasi.admin:
+    description: Metin Taşı yönetim izni
+    default: op
