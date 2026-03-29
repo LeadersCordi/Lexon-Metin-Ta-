@@ -77,5 +77,3 @@ Windows’ta Maven Wrapper ile:
 - **DecentHolograms** — isteğe bağlı (softdepend; hologramlar için)
 
 ---
-
-Forum / sürüm notu metinleri için depodaki **`YAYIN_NOTLARI_TR.md`** dosyasına bakabilirsiniz.
